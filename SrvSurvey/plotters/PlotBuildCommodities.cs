@@ -131,7 +131,8 @@ namespace SrvSurvey.plotters
 
             // default to show all projects, using only FCs linked to any of these projects
             var relevantProjects = colonyData.projects.ToHashSet();
-            var relevantFCs = relevantProjects.SelectMany(p => p.linkedFC.Select(fc => fc.marketId)).ToHashSet();
+            //var relevantFCs = relevantProjects.SelectMany(p => p.linkedFC.Select(fc => fc.marketId)).ToHashSet();
+            var relevantFCs = colonyData.linkedFCs.Keys.ToHashSet();
             this.headerText = $"{relevantProjects.Count} Projects:";
 
             if (game.lastDocked != null && dockedAtConstructionSite)
